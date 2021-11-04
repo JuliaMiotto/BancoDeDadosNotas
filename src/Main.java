@@ -95,19 +95,7 @@ public class Main {
 
                 while(resultSet.next()){
                     System.out.println("________________");
-                    String nome = resultSet.getString(1);
-                    double trabalho1 = resultSet.getDouble(2);
-                    double prova1 = resultSet.getDouble(3);
-                    double trabalho2 = resultSet.getDouble(4);
-                    double prova2 = resultSet.getDouble(5);
-                    double media = resultSet.getDouble(6);
-
-                    System.out.println("Nome do Aluno: " + nome);
-                    System.out.println("Nota do Aluno Trabalho 1: " + trabalho1);
-                    System.out.println("Nota do Aluno Prova 1: " + prova1);
-                    System.out.println("Nota do Aluno Trabalho 2: " + trabalho2);
-                    System.out.println("Nota do Aluno Prova 2: " + prova2);
-                    System.out.println("Média Bimestral do Aluno: " + media);
+                    imprimeResultado(resultSet);
 
                 }
 
@@ -125,19 +113,7 @@ public class Main {
 
                 ResultSet resultSet = pstat.executeQuery();
                 if(resultSet.next()){
-                    String nome = resultSet.getString(1);
-                    double trabalho1 = resultSet.getDouble(2);
-                    double prova1 = resultSet.getDouble(3);
-                    double trabalho2 = resultSet.getDouble(4);
-                    double prova2 = resultSet.getDouble(5);
-                    double media = resultSet.getDouble(6);
-
-                    System.out.println("Nome do Aluno: " + nome);
-                    System.out.println("Nota do Aluno Trabalho 1: " + trabalho1);
-                    System.out.println("Nota do Aluno Prova 1: " + prova1);
-                    System.out.println("Nota do Aluno Trabalho 2: " + trabalho2);
-                    System.out.println("Nota do Aluno Prova 2: " + prova2);
-                    System.out.println("Média Bimestral do Aluno: " + media);
+                    imprimeResultado(resultSet);
 
                 } else {
                     System.out.println("Aluno não encontrado!");
@@ -150,5 +126,21 @@ public class Main {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void imprimeResultado(ResultSet resultSet) throws SQLException {
+        String nome = resultSet.getString(1);
+        double trabalho1 = resultSet.getDouble(2);
+        double prova1 = resultSet.getDouble(3);
+        double trabalho2 = resultSet.getDouble(4);
+        double prova2 = resultSet.getDouble(5);
+        double media = resultSet.getDouble(6);
+
+        System.out.println("Nome do Aluno: " + nome);
+        System.out.println("Nota do Aluno Trabalho 1: " + trabalho1);
+        System.out.println("Nota do Aluno Prova 1: " + prova1);
+        System.out.println("Nota do Aluno Trabalho 2: " + trabalho2);
+        System.out.println("Nota do Aluno Prova 2: " + prova2);
+        System.out.println("Média Bimestral do Aluno: " + media);
     }
 }
